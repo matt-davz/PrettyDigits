@@ -1,2 +1,2 @@
 # PrettyDigits
-A test library to make numbers pretty - same to millify
+A Millify clone for making big numbers readable
