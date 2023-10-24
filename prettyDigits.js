@@ -1,9 +1,9 @@
-import { defaultOptions } from "./options";
+const defaultOptions = require('./options.js');
 
 function prettyDigits (num,options) {
 
     const opts = options ? {...defaultOptions, ...options} : {...defaultOptions}
-
+    
     
     function makeDivider(lowerBound) {
     let arr = [1];
@@ -22,37 +22,41 @@ function prettyDigits (num,options) {
 
             if (numLength >= lowerBound && numLength <= upperBound) {
                 const divisor = makeDivider(lowerBound);
-                return { unit: units[i], num: num / divisor };
+                return { unit: units[i], num: num / divisor};
             }
         }
     }
-
-    const pretty = getPretty(num,opts.units);
-    console.log(pretty)
     
-    function lowerCase(obj) {
-        return {
-            ...obj,
-            unit: obj.unit.toLowerCase()
+    let pretty = getPretty(num,opts.units)
+    
+    
+    
+    const executeOptions = (obj) =>{
+        let boat = {...obj}
+        
+        if(opts.space){
+            boat = {
+                ...boat,
+                unit: ` ${boat.unit}`
+            }
         }
+
+        if(opts.tolowercase){
+            boat = {
+                ...boat,
+                unit: boat.unit.toLowerCase()
+            }
+        }
+        
+
+        
+        return boat
     }
 
-    function space(obj) {
-        return {
-            ...obj,
-            unit: ' '+obj.unit
-        }
-    }
+    const veryPretty = executeOptions(pretty)
 
-    function display(obj) {
-        if(opt.space){
-            return space(obj)
-        } else {
-            return(obj)
-        }
-    }
-
-   
+    return `${veryPretty.num}${veryPretty.unit} `
+    
 }
-prettyDigits()
 
+console.log(prettyDigits(125500))

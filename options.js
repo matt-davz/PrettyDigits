@@ -1,7 +1,7 @@
-export const defaultOptions = {
+const defaultOptions = {
     lowercase: false,
     precision: 1,
-    space: false,
+    space: true,
     units: [
       "",
       "K", // Thousand
@@ -12,4 +12,5 @@ export const defaultOptions = {
       "E", // Quintillion
     ],
 };
-  
+
+module.exports = defaultOptions;
