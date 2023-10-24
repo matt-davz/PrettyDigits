@@ -52,19 +52,14 @@ function prettyDigits (num,options = {}) {
             break;
     }
 
-    let final = 0;
-    if(lowerCase){
-        number.abr = number.abr.toLowerCase()
-    }
+    number.num >= 100 ? number.num = Math.round(number.num) : undefined;
+   
+    lowerCase ?  number.abr = number.abr.toLowerCase() : undefined;
 
     if(space) {
-        final = `${number.num} ${number.abr}`
+        return `${number.num} ${number.abr}`
     } else {
-        final = `${number.num}${number.abr}`
+        return `${number.num}${number.abr}`
     }
    
-    return final
-
 }
-
-console.log(prettyDigits(1200000000, {lowerCase: true, percision: 2, units: ['b','kb','mb','gb','t']}))
