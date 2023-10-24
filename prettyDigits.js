@@ -1,67 +1,58 @@
+import { defaultOptions } from "./options";
 
-function prettyDigits (num,options = {}) {
-    let {space,percision,units,lowerCase} = options;
+function prettyDigits (num,options) {
 
-    if(space === undefined) {
-        space = true;
+    const opts = options ? {...defaultOptions, ...options} : {...defaultOptions}
+
+    
+    function makeDivider(lowerBound) {
+    let arr = [1];
+    for (let i = 0; i < lowerBound; i++) {
+        arr.push(0);
+    }
+    return Number(arr.join(''));
     }
 
-    if(percision === undefined) {
-        percision = 1;
+    function getPretty(num, units) {
+        const numLength = Array.from(String(num), Number).length;
+
+        for (let i = 1; i < units.length; i++) {
+            const lowerBound = i * 3;
+            const upperBound = i * 3 + 3;
+
+            if (numLength >= lowerBound && numLength <= upperBound) {
+                const divisor = makeDivider(lowerBound);
+                return { unit: units[i], num: num / divisor };
+            }
+        }
     }
 
-    if(lowerCase === undefined) {
-        lowerCase = false;
+    const pretty = getPretty(num,opts.units);
+    console.log(pretty)
+    
+    function lowerCase(obj) {
+        return {
+            ...obj,
+            unit: obj.unit.toLowerCase()
+        }
     }
 
-    if(units === undefined) {
-        units = ['','K','M','B','T']
+    function space(obj) {
+        return {
+            ...obj,
+            unit: ' '+obj.unit
+        }
     }
 
-    let number = {
-        num: num,
-        abr: ''
+    function display(obj) {
+        if(opt.space){
+            return space(obj)
+        } else {
+            return(obj)
+        }
     }
 
-    let numLength = Array.from(String(number.num),Number).length
-
-
-    switch (true) {
-        case numLength > 12:
-            number.abr = units[4];
-            number.num = (number.num/1000000000000).toFixed(percision)
-            break;
-        case numLength > 9:
-            number.abr = units[3];
-            number.num = (number.num/1000000000).toFixed(percision)
-            break;
-        case numLength > 6:
-            number.abr = units[2];
-            number.num = (number.num/1000000).toFixed(percision)
-            break;
-        case numLength > 3:
-            number.abr = units[1];
-            number.num = (number.num/1000).toFixed(percision)
-            break;
-        default:
-            number.abr = units[0];
-            break;
-    }
-
-    if (number.num <= 100) {
-        number.num = Math.round(number.num);
-    }
-
-    if (lowerCase) {
-        number.abr = number.abr.toLowerCase();
-    }
-
-    if(space) {
-        return `${number.num} ${number.abr}`
-    } else {
-        return `${number.num}${number.abr}`
-    }
    
 }
+prettyDigits()
 
-console.log(prettyDigits(100000, {space: false}))
