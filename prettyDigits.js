@@ -14,19 +14,8 @@ function prettyDigits (num,options = {}) {
         units = ['','K','M','B','T','Q']
     }
 
-    const numToDevide = (num) => {
-        let arrLength = Array.from(String(num),Number).length
-        let newArr = [1]
-        for (let i = 1; i < arrLength; i++) {
-            newArr.push(0)
-        }
-        return Number(newArr.join(''))
-        
-    }
-
     let number = {
         num: num,
-        short: numToDevide(num),
         abr: ''
     }
 
@@ -35,50 +24,44 @@ function prettyDigits (num,options = {}) {
     
 
     switch (true) {
-        case numLength > 14:
-            number.abr = 'Q';
-            number.num = (number.num/numToDevide(number.num)).toFixed(percision)
+        case numLength > 15:
+            number.abr = units[5];
+            number.num = (number.num/1000000000000000).toFixed(percision)
             break;
-        case numLength > 11:
-            number.abr = 'T';
-            number.num = (number.num/numToDevide(number.num)).toFixed(percision)
+        case numLength > 12:
+            number.abr = units[4];
+            number.num = (number.num/1000000000000).toFixed(percision)
             break;
-        case numLength > 8:
-            number.abr = 'B';
-            number.num = (number.num/numToDevide(number.num)).toFixed(percision)
+        case numLength > 9:
+            number.abr = units[3];
+            number.num = (number.num/1000000000).toFixed(percision)
             break;
-        case numLength > 5:
-            number.abr = 'M';
-            number.num = (number.num/numToDevide(number.num)).toFixed(percision)
+        case numLength > 6:
+            number.abr = units[2];
+            number.num = (number.num/1000000).toFixed(percision)
             break;
-        case numLength > 2:
-            number.abr = 'K';
-            number.num = (number.num/numToDevide(number.num)).toFixed(percision)
+        case numLength > 3:
+            number.abr = units[1];
+            number.num = (number.num/1000).toFixed(percision)
             break;
         default:
-            number.abr = '';
+            number.abr = units[0];
             break;
     }
 
+    let final = 0;
+
+    if(space) {
+        final = `${number.num} ${number.abr}`
+    } else {
+        final = `${number.num}${number.abr}`
+    }
    
 
-    const shortenNumber = (numArr,percision) => {
-        
-    }
-
-
-
-    const setArr = (num) => {
-        const numArr = Array.from(String(num),Number)
-        const newArr = arr.filter((elm,index) => {
-            return index < percision
-        })
-    }
-
     
-    return number
+    return final
 
 
 }
 
-console.log(prettyDigits(125000,{percision: 2}))
+console.log(prettyDigits(1200000,{percision: 2, space: false}))
