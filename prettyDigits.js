@@ -1,6 +1,6 @@
 
 function prettyDigits (num,options = {}) {
-    let {space,percision, units} = options;
+    let {space,percision,units,lowerCase} = options;
 
     if(space === undefined) {
         space = true;
@@ -8,6 +8,10 @@ function prettyDigits (num,options = {}) {
 
     if(percision === undefined) {
         percision = 1;
+    }
+
+    if(lowerCase === undefined) {
+        lowerCase = false;
     }
 
     if(units === undefined) {
@@ -21,7 +25,6 @@ function prettyDigits (num,options = {}) {
 
     let numLength = Array.from(String(number.num),Number).length
 
-    
 
     switch (true) {
         case numLength > 15:
@@ -50,6 +53,9 @@ function prettyDigits (num,options = {}) {
     }
 
     let final = 0;
+    if(lowerCase){
+        number.abr = number.abr.toLowerCase()
+    }
 
     if(space) {
         final = `${number.num} ${number.abr}`
@@ -57,11 +63,8 @@ function prettyDigits (num,options = {}) {
         final = `${number.num}${number.abr}`
     }
    
-
-    
     return final
-
 
 }
 
-console.log(prettyDigits(1200000,{percision: 2, space: false}))
+console.log(prettyDigits(1200000000, {lowerCase: true, percision: 2, units: ['b','kb','mb','gb','t']}))
