@@ -15,7 +15,7 @@ function prettyDigits (num,options = {}) {
     }
 
     if(units === undefined) {
-        units = ['','K','M','B','T','Q']
+        units = ['','K','M','B','T']
     }
 
     let number = {
@@ -27,10 +27,6 @@ function prettyDigits (num,options = {}) {
 
 
     switch (true) {
-        case numLength > 15:
-            number.abr = units[5];
-            number.num = (number.num/1000000000000000).toFixed(percision)
-            break;
         case numLength > 12:
             number.abr = units[4];
             number.num = (number.num/1000000000000).toFixed(percision)
@@ -52,9 +48,13 @@ function prettyDigits (num,options = {}) {
             break;
     }
 
-    number.num >= 100 ? number.num = Math.round(number.num) : undefined;
-   
-    lowerCase ?  number.abr = number.abr.toLowerCase() : undefined;
+    if (number.num <= 100) {
+        number.num = Math.round(number.num);
+    }
+
+    if (lowerCase) {
+        number.abr = number.abr.toLowerCase();
+    }
 
     if(space) {
         return `${number.num} ${number.abr}`
@@ -63,3 +63,5 @@ function prettyDigits (num,options = {}) {
     }
    
 }
+
+console.log(prettyDigits(100000, {space: false}))
