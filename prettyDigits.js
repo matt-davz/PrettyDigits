@@ -22,7 +22,12 @@ function prettyDigits (num,options) {
 
             if (numLength >= lowerBound && numLength <= upperBound) {
                 const divisor = makeDivider(lowerBound);
-                return { unit: units[i], num: num / divisor};
+                const finalNum = num / divisor
+                if(!numLength%3){
+                    return {unit: units[i], num: finalNum.toFixed(0)}
+                } else {
+                    return { unit: units[i], num: finalNum.toFixed(opts.percision)};
+                }
             }
         }
     }
@@ -48,7 +53,8 @@ function prettyDigits (num,options) {
             }
         }
         
-
+        
+        
         
         return boat
     }
@@ -59,4 +65,4 @@ function prettyDigits (num,options) {
     
 }
 
-console.log(prettyDigits(125500))
+console.log(prettyDigits(125500, {percision: 1}))
