@@ -4,12 +4,10 @@ const defaultOptions = {
     space: true,
     units: [
       "",
-      "K", // Thousand
-      "M", // Million
-      "B", // Billion
-      "T", // Trillion
-      "P", // Quadrillion
-      "E", // Quintillion
+      "K",
+      "M", 
+      "B", 
+      "T"
     ],
 };
 

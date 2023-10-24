@@ -5,7 +5,7 @@ function prettyDigits (num,options) {
     const opts = options ? {...defaultOptions, ...options} : {...defaultOptions}
     
     
-    function makeDivider(lowerBound) {
+    function makeDivider(lowerBound) { //creates the divsor for 
     let arr = [1];
     for (let i = 0; i < lowerBound; i++) {
         arr.push(0);
@@ -34,28 +34,17 @@ function prettyDigits (num,options) {
     
     let pretty = getPretty(num,opts.units)
     
-    
-    
     const executeOptions = (obj) =>{
         let boat = {...obj}
         
         if(opts.space){
-            boat = {
-                ...boat,
-                unit: ` ${boat.unit}`
-            }
+            boat.unit =` ${boat.unit}`
         }
 
         if(opts.tolowercase){
-            boat = {
-                ...boat,
-                unit: boat.unit.toLowerCase()
-            }
+            boat.unit = boat.unit.toLowerCase()
         }
-        
-        
-        
-        
+
         return boat
     }
 
@@ -65,4 +54,4 @@ function prettyDigits (num,options) {
     
 }
 
-console.log(prettyDigits(125500, {percision: 1}))
+console.log(prettyDigits(125500, {units:['b','kb','mb','gb','t']}))

@@ -1,0 +1,19 @@
+{
+  "name": "prettydigits",
+  "version": "1.0.0",
+  "description": "Prettifies large numbers into readable human numbers",
+  "main": "prettyDigits.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matt-davz/PrettyDigits.git"
+  },
+  "author": "Matthew Davies",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matt-davz/PrettyDigits/issues"
+  },
+  "homepage": "https://github.com/matt-davz/PrettyDigits#readme"
+}
