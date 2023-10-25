@@ -9,3 +9,15 @@ test('Testing percision option to 10 decimal place', () => {
     
 }) 
 
+test('Can use custom units and devisor will increase automatically', () => {
+    for(let i = 1; i < 15; i++){
+        const power = Math.pow(10,i*3)
+        const testNum = 2*power
+        const testUnits = []
+        for(let j = 0; j < i; j++){
+            testUnits.push(String.fromCharCode(65+i))
+        }
+        expect(prettyDigits(testNum,{units:testUnits}))
+    }
+    
+})
