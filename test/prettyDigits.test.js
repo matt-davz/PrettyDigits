@@ -10,14 +10,11 @@ test('Testing percision option to 10 decimal place', () => {
 }) 
 
 test('Can use custom units and devisor will increase automatically', () => {
-    for(let i = 1; i < 15; i++){
-        const power = Math.pow(10,i*3)
-        const testNum = 2*power
-        const testUnits = []
-        for(let j = 0; j < i; j++){
-            testUnits.push(String.fromCharCode(65+i))
-        }
-        expect(prettyDigits(testNum,{units:testUnits}))
+    const testNums = [Math.pow(10,3),Math.pow(10,6),Math.pow(10,9),Math.pow(10,12),Math.pow(10,15),Math.pow(10,18)];
+    const testUnits = ['','b','kb','mb','gb','tb','pb']
+    const expectedOutputs = ['1 b','1 kb','1 mb','1 gb','1 tb','1 pb']
+
+    for(let i = 0; i < testNums.length; i++){
+        expect(prettyDigits(testNums[i],{units: testUnits})).toBe(expectedOutputs[i])
     }
-    
 })
