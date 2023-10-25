@@ -1,10 +1,7 @@
 const {makeDivider, executeOptions} = require('../lib/utils.js')
 
 test('gives proper divdor', () => {
-
-    
-
-    expect(makeDivider(3)).toBe(1000)
-
-    expect(makeDivider(6)).toBe(1000000)
+    for(let i = 1; i < 5; i++){
+        expect(makeDivider(3*i)).toBe(Math.pow(1000,i))
+    }
 })
