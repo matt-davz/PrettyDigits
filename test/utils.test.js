@@ -41,12 +41,23 @@ describe('getShorten function', () => {
         })
     })
 
-    test('Works on negative numbers', () => {
+    test('Works on negative numbers', () => { // fix this to use getshorten function not pretty digits
         const input = -1000
         const expectedOutput = '-1 K'
 
         expect(prettyDigits(input)).toBe(expectedOutput);
     })
+
+
+    
+   
+
+    test('should throw a TypeError if there are not enough units for the number', () => {
+        expect(() => {
+            getShorten(1000000, ['', 'k']);
+        }).toThrow(TypeError);
+    });
+    
 })
 
 

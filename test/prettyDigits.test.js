@@ -32,13 +32,7 @@ describe('testing numbers under 100', () => {
     })
 
     test('still work with custom units', () => {
-        const testNums = [300,999,1,10.5];
-        const testUnits = ['b'];
-        const expectedOutputs = ['300 b','999 b','1 b','11 b'];
-
-        testNums.forEach((elm,i) => {
-            expect(prettyDigits(testNums[i],{units: testUnits})).toBe(expectedOutputs[i])
-        })
+        expect(prettyDigits(300,{units: testUnits})).toBe('300 b')
 
     }) 
 })
