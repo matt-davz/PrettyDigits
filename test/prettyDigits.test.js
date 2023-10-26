@@ -32,7 +32,7 @@ describe('testing numbers under 100', () => {
     })
 
     test('still work with custom units', () => {
-        expect(prettyDigits(300,{units: testUnits})).toBe('300 b')
+        expect(prettyDigits(300,{units: ['b']})).toBe('300 b')
 
     }) 
 })
