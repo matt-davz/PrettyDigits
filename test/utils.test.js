@@ -1,3 +1,4 @@
+const { prettyDigits } = require('../lib/prettyDigits.cjs')
 const { executeOptions, getShorten, getUnit} = require('../lib/utils.cjs')
 
 describe('executes space option', () => {
@@ -29,12 +30,23 @@ test('getUnit will give the correct unit', () => {
     })
 })
 
-test('getShorten will shorten the number', () => {
-    const testNums = [500,Math.pow(10,3),Math.pow(10,6),Math.pow(10,9),Math.pow(10,12)];
-    const expectedOutputs = [500,1,1,1,1]
 
-    testNums.forEach((e,i) => {
-        expect(getShorten(testNums[i],['','K','M','B','T'])).toBe(expectedOutputs[i])
+describe('getShorten function', () => {
+    test('getShorten will shorten the number', () => {
+        const testNums = [500,Math.pow(10,3),Math.pow(10,6),Math.pow(10,9),Math.pow(10,12)];
+        const expectedOutputs = [500,1,1,1,1]
+
+        testNums.forEach((e,i) => {
+            expect(getShorten(testNums[i],['','K','M','B','T'])).toBe(expectedOutputs[i])
+        })
+    })
+
+    test('Works on negative numbers', () => {
+        const input = -1000
+        const expectedOutput = '-1 K'
+
+        expect(prettyDigits(input)).toBe(expectedOutput);
     })
 })
+
 
