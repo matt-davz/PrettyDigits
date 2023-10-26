@@ -1,27 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1698285676514" clover="3.2.0">
-  <project timestamp="1698285676514" name="All files">
-    <metrics statements="18" coveredstatements="17" conditionals="14" coveredconditionals="13" methods="4" coveredmethods="4" elements="36" coveredelements="34" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
+<coverage generated="1698296040488" clover="3.2.0">
+  <project timestamp="1698296040488" name="All files">
+    <metrics statements="31" coveredstatements="28" conditionals="14" coveredconditionals="13" methods="5" coveredmethods="5" elements="50" coveredelements="46" complexity="0" loc="31" ncloc="31" packages="1" files="3" classes="3"/>
+    <file name="options.cjs" path="/Users/mattdavz/Documents/Code Brah/prettyDigits/PrettyDigits/lib/options.cjs">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+    </file>
+    <file name="prettyDigits.cjs" path="/Users/mattdavz/Documents/Code Brah/prettyDigits/PrettyDigits/lib/prettyDigits.cjs">
+      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="6" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="9" count="15" type="stmt"/>
+      <line num="22" count="15" type="stmt"/>
+      <line num="24" count="15" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+    </file>
     <file name="utils.cjs" path="/Users/mattdavz/Documents/Code Brah/prettyDigits/PrettyDigits/lib/utils.cjs">
-      <metrics statements="18" coveredstatements="17" conditionals="14" coveredconditionals="13" methods="4" coveredmethods="4"/>
-      <line num="6" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="7" count="1" type="stmt"/>
-      <line num="10" count="4" type="cond" truecount="2" falsecount="0"/>
+      <metrics statements="21" coveredstatements="18" conditionals="12" coveredconditionals="11" methods="4" coveredmethods="4"/>
+      <line num="5" count="20" type="cond" truecount="3" falsecount="1"/>
+      <line num="7" count="16" type="stmt"/>
+      <line num="8" count="16" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
       <line num="11" count="1" type="stmt"/>
-      <line num="14" count="4" type="cond" truecount="1" falsecount="1"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="14" count="0" type="stmt"/>
       <line num="15" count="0" type="stmt"/>
-      <line num="18" count="4" type="stmt"/>
-      <line num="23" count="6" type="stmt"/>
-      <line num="25" count="6" type="stmt"/>
-      <line num="26" count="30" type="cond" truecount="4" falsecount="0"/>
-      <line num="27" count="11" type="stmt"/>
-      <line num="31" count="6" type="stmt"/>
-      <line num="37" count="5" type="stmt"/>
-      <line num="38" count="25" type="cond" truecount="4" falsecount="0"/>
-      <line num="39" count="9" type="stmt"/>
-      <line num="42" count="5" type="stmt"/>
-      <line num="45" count="1" type="stmt"/>
-      <line num="47" count="1" type="stmt"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="18" count="2" type="stmt"/>
+      <line num="20" count="20" type="stmt"/>
+      <line num="25" count="20" type="stmt"/>
+      <line num="27" count="20" type="stmt"/>
+      <line num="28" count="96" type="cond" truecount="4" falsecount="0"/>
+      <line num="29" count="29" type="stmt"/>
+      <line num="33" count="20" type="stmt"/>
+      <line num="39" count="20" type="stmt"/>
+      <line num="40" count="96" type="cond" truecount="4" falsecount="0"/>
+      <line num="41" count="29" type="stmt"/>
+      <line num="44" count="20" type="stmt"/>
+      <line num="47" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>

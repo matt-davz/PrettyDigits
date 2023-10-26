@@ -1,18 +1,5 @@
 const { executeOptions, getShorten, getUnit} = require('../lib/utils.cjs')
 
-
-// test('executes precision options to 10 decimal place', () => {
-//     const testNum = 1234567891;
-//     let expectedNum = ['1.2 B','1.23 B','1.235 B','1.2346 B','1.23457 B','1.234568 B', '1.2345679 B','1.23456789 B', '1.234567891 B'];
-
-//     expectedNum.forEach((elm,i) => {
-//         expect()
-//     })
-// })
-
-
-//dont forget to test precision now that it is outisde of prettydigits file and in utils
-
 describe('executes space option', () => {
     test('space option is true', () => {
         expect(executeOptions({num: 1000, unit: 'K'},{space: true})).toStrictEqual({num: 1000, unit: ' K'})
@@ -24,7 +11,7 @@ describe('executes space option', () => {
 }) 
 
 describe('executes lowercase options',() => {
-    test('lowercase is true', () => {
+    test('lowercase is false', () => {
         expect(executeOptions({num: 100, unit: 'K'},{tolowercase: true})).toStrictEqual({num: 100, unit: 'k'})
     })
     test('lowercase is true', () => {

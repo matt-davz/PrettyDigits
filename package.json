@@ -5,7 +5,7 @@
   "description": "Prettifies large numbers into readable human numbers",
   "main": "prettyDigits.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
