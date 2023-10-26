@@ -14,7 +14,7 @@ Changes long 'ugly' `numbers` into short pretty and readable `strings` 🌸
 ## Useage
 
 ```javascript
-  import prettyDigits from prettydigits.js
+  const {prettyDigits} = require('prettyDigits');
 
   prettyDigits(3500); // 4 K
 
