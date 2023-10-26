@@ -42,6 +42,11 @@ describe('testing numbers under 100', () => {
 
     }) 
 })
+test('throw an error if NaN', () => {
+    expect(() => {
+        prettyDigits('j');
+    }).toThrow(TypeError);
+});
 
 
 
