@@ -3,8 +3,8 @@ const {prettyDigits} = require('../lib/prettyDigits.cjs')
 test('Testing percision option to 10 decimal place', () => {
     const testNum = 1234567891;
     let expectedNum = ['1.2 B','1.23 B','1.235 B','1.2346 B','1.23457 B','1.234568 B', '1.2345679 B','1.23456789 B', '1.234567891 B']
-    for(let i = 1; i < expectedNum.length; i++){
-        expect(prettyDigits(testNum,{percision: i})).toBe(`${expectedNum[i-1]}`)
+    for(let i = 0; i < expectedNum.length; i++){
+        expect(prettyDigits(testNum,{precision: i})).toBe(`${expectedNum[0]}`)
     }
     
 }) 
@@ -42,3 +42,14 @@ describe('testing numbers under 100', () => {
 
     }) 
 })
+
+test('negative numbers work', () => {
+    const testNums = [-100,-1000,-1,Math.pow(-10,6),Math.pow(-10,9)];
+    const expectedOutputs = ['-100 ','-1 K','-1 ','-1 M','-1 B'];
+
+    testNums.forEach((e,i) => {
+        expect(prettyDigits(testNums[i])).toBe(expectedOutputs[i])
+    })
+})
+
+
