@@ -2,14 +2,14 @@
 
 Changes long 'ugly' `numbers` into short pretty and readable `strings` 🌸
 
-| Before      | After       |
-|-------------|-------------|
-| `1000`      | `'1 K'`     |
-| `10000`     | `'10 K'`    |
-| `1000000`   | `'1 M'`     |
-| `0.0004356` | `'0.0004'`  |
-| `100`       | `'100 b'`   |
-| `-1250`     | `'-1.25 K'` |
+| Before      | Command      | After       |
+|-------------|-------------|-------------|
+| `1000`      | `prettyDigits(1000)`     | `'1 K'`     |
+| `10000`     | `prettyDigits(10000)`    | `'10 K'`    |
+| `1000000`   | `prettyDigits(1000000)`     | `'1 M'`     |
+| `0.0004356` | `prettyDigits(0.0004356)`  | `'0.0004'`  |
+| `100`       | `prettyDigits(100,{units:['b']})`   | `'100 b'`   |
+| `-1250`     | `prettyDigits(-1250,{precision: 2})` | `'-1.25 K'` |
 
 ## Useage
 
