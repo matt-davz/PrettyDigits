@@ -42,12 +42,32 @@ describe('testing numbers under 100', () => {
 
     }) 
 })
+
+
+describe('testing really small numbers', () => {
+    const testNum = 0.05555;
+
+    test('precision 0', () => {
+        expect(prettyDigits(testNum)).toBe('0.06')
+    })
+
+    test('precision 1', () => {
+        expect(prettyDigits(testNum,{precision:1})).toBe('0.056')
+    })
+})
+
+
 test('throw an error if NaN', () => {
     expect(() => {
         prettyDigits('j');
     }).toThrow(TypeError);
 });
 
+test('throw an error if precision is NaN', () => {
+    expect(() => {
+        prettyDigits(1000,{precision: 'u'});
+    }).toThrow(TypeError);
+});
 
 
 

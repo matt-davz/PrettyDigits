@@ -1,4 +1,6 @@
-const testNum = 1234567891;
+let num = 0.00555
 
-
-console.log((testNum/Math.pow(10,10-1)).toFixed(1))
+let numArr = Array.from(String(num))
+let index = numArr.findIndex(elm => elm > 0)
+let fixed = num.toFixed(index-1)
+console.log(fixed)
