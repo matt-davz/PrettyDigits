@@ -2,6 +2,11 @@
 
 Changes long 'ugly' `numbers` into short pretty and readable `strings` 🌸
 
+## Install with NPM
+```
+npm i prettydigits
+```
+
 | Before      | Command      | After       |
 |-------------|-------------|-------------|
 | `1000`      | `prettyDigits(1000)`     | `'1 K'`     |

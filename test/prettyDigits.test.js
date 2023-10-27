@@ -6,7 +6,6 @@ test('Testing percision option to 10 decimal place', () => {
     for(let i = 0; i < expectedNum.length; i++){
         expect(prettyDigits(testNum,{precision: i})).toBe(`${expectedNum[i]}`)
     }
-    
 }) 
 
 test('Can use custom units and devisor will increase automatically', () => {
