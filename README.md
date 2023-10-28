@@ -33,7 +33,7 @@ npm i prettydigits
 
 | Name          | Type      | Default Values         | Description                                  |
 |---------------|-----------|------------------------|----------------------------------------------|
-| `precision`   | `number`  | `0`                    | Number of decimal places to use. If the number isn't a whole number and is under 1 the precision starts at where the first number starts. Eg `prettyDigits(0.0053,{precision: 0})` = `'0.005'`             |
+| `precision`   | `number`  | `0`                    | Number of decimal places to use. If the number is between 1 and 0 the precision starts at where the trailing zeros end. Eg `prettyDigits(0.0053,{precision: 0})` = `'0.005'`             |
 | `tolowercase` | `boolean` | `false`                | Change abbreviation to lower case            |
 | `space`       | `boolean` | `true`                 | Adds a space between abbreviation and number |
 | `units`       | `Array`   | `["","K","M","B","T"]` | Change the units to your own custom ones     |
