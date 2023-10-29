@@ -17,7 +17,7 @@
   ],
   "type": "module",
   "name": "prettydigits",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Prettifies large numbers into readable human numbers",
   "main": "./lib/prettyDigits.cjs",
   "scripts": {
