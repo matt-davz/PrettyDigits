@@ -47,19 +47,40 @@ describe('testing really small numbers', () => {
     test('precision 1', () => {
         expect(prettyDigits(testNum,{precision:1})).toBe('0.056')
     })
+
+    test('shows scientific notion for numbers lower than to 1e-7', () => {
+        expect(prettyDigits(0.0000005)).toBe('5e-7')
+    })
+
+    test('shows decimal place for nums lower than 1e-7', () => {
+        expect(prettyDigits(0.000000067)).toBe('6.7e-8')
+    })
+
+    test('negative small numbers', () => {
+        expect(prettyDigits(-0.005, {sciNotion: false})).toBe('-0.005') ///////testttss
+    })
+
+    test('negative numbers under 1e-7', () => {
+        expect(prettyDigits(-0.00000067)).toBe('-6.7e-7')
+    })
+
 })
 
 
-test('throw an error if NaN', () => {
+test('throw an error if NaN and returns N/A string', () => {
     expect(() => {
         prettyDigits('j');
-    }).toThrow(TypeError);
+    }).toThrow(TypeError) && expect(() => {
+        prettyDigits('j');
+    }).toBe('N/A') ;
 });
 
-test('throw an error if precision is NaN', () => {
+test('throw an error if precision is NaN and returns N/A string', () => {
     expect(() => {
         prettyDigits(1000,{precision: 'u'});
-    }).toThrow(TypeError);
+    }).toThrow(TypeError) && expect(() => {
+        prettyDigits(1000,{precision: 'u'});
+    }).toBe('N/A')
 });
 
 

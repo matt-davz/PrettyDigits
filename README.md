@@ -19,16 +19,21 @@ npm i prettydigits
 ## Useage
 
 ```javascript
+  import {prettyDigits} from 'prettyDigits'
+  //or
   const {prettyDigits} = require('prettyDigits');
 
-  prettyDigits(3500); // 4 K
+  prettyDigits(3500); // '4 K'
 
-  prettyDigits(1293943, {precision: 3, tolowercase: true}) // 1.294 m
+  prettyDigits(1293943, {precision: 3, tolowercase: true}) // '1.294 m'
 
-  prettyDigits(-12345, {space: false, units: ['b','kb','mb','gb','tb']}) // -12kb
+  prettyDigits(-12345, {space: false, units: ['b','kb','mb','gb','tb']}) // '-12kb'
 
-  prettyDigits(0.005431351234, {precision: 2}) // 0.00543
+  prettyDigits(0.005431351234, {precision: 2}) // '0.00543'
+
+  prettyDigits(0.000000765) // '7.65e-7' also applies for negative numbers
 ```
+Numbers that are lower than 1e-7 get a scientific notion string returned.
 ## Options
 
 | Name          | Type      | Default Values         | Description                                  |
